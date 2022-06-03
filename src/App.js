@@ -10,7 +10,7 @@ import { CreateTodoButton } from "./components/CreateTodoButton";
 const todos = [
     {
         text: "Cut Onions",
-        completed: false,
+        completed: true,
     },
     {
         text: "Cut Tomatoes",
@@ -29,9 +29,8 @@ function App() {
             <TodoSearch />
             <TodoList>
                 {todos.map((todo) => (
-                    <TodoItem key={todo.text} text={todo.text} />
+                    <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
                 ))}
-                <TodoItem />
             </TodoList>
             <CreateTodoButton />
         </React.Fragment>
