@@ -6,6 +6,7 @@ import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoContext } from "../components/TodoContext";
 import { Modal } from "../components/Modal";
+import { TodoForm } from "../components/TodoForm";
 
 function AppUI() {
 	const {
@@ -25,9 +26,9 @@ function AppUI() {
 			<TodoList>
 				{error && <p>No ya valio madre</p>}
 				{loading && (
-					<p>Estamso cargando, que no panda el cunico</p>
+					<p>Estamos cargando, que no panda el cunico</p>
 				)}
-				{!loading && !searchedTodos.lenght && (
+				{!loading && !searchedTodos.length && (
 					<p>Crea tu primer TODO</p>
 				)}
 
@@ -43,12 +44,10 @@ function AppUI() {
 			</TodoList>
 			{!!openModal && (
 				<Modal>
-				<p>{searchedTodos[0]?.text}</p>
-			</Modal>
+					<TodoForm />
+				</Modal>
 			)}
-			<CreateTodoButton 
-				setOpenModal={setOpenModal}
-			/>
+			<CreateTodoButton setOpenModal={setOpenModal} />
 		</React.Fragment>
 	);
 }
